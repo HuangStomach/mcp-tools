@@ -28,7 +28,8 @@ def getFile(
         with psycopg.connect(
             host=db_host, port=db_port, user=db_user, password=db_password, dbname=db_name
         ) as connection:
-            with connection.transaction(readonly=True): # 开启只读事务
+            with connection.transaction(): # 开启只读事务
+                connection.set_read_only(True)
                 with connection.cursor() as cursor:
                     cursor.execute(sql_query)
                     
