@@ -1,4 +1,5 @@
-fastmcp==3.0.0b1
+fastmcp
 psycopg==3.3.2
 psycopg-binary==3.3.2
 psycopg-pool==3.3.0
+ffmpeg-python

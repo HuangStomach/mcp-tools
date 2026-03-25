@@ -4,10 +4,12 @@ WORKDIR /app
 
 # 复制 requirements.txt 并安装依赖
 COPY requirements.txt .
+RUN apk add --no-cache ffmpeg
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 复制项目文件
-COPY . .
+COPY index.py ./index.py
+COPY tools ./tools
 
 # 暴露端口
 EXPOSE 8000
